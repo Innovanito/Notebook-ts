@@ -1,11 +1,14 @@
-import React from 'react'
-import NewForm from './NewForm'
+import NoteForm from './NoteForm'
+import { NoteData } from './App'
 
-const NewNote = () => {
+type NewNoteProps = {
+  onSubmit: (data: NoteData) => void
+}
+const NewNote = ({ onSubmit}: NewNoteProps) => {
   return (
     <>
       <div className='mb-4'>NewNote</div>
-      <NewForm/>
+      <NoteForm onSubmit={onSubmit}/>
     </>
   )
 }
