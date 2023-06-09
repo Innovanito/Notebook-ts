@@ -13,7 +13,7 @@ type SimplifiedNote = {
 
 type NoteListProps = {
   availableTags: Tag[]
-  notes: Note[]
+  notes: SimplifiedNote[]
 }
 
 export function NoteList({availableTags, notes}: NoteListProps)  {
@@ -28,7 +28,10 @@ export function NoteList({availableTags, notes}: NoteListProps)  {
     })
   },[title, selectedTags, notes])
 
-  console.log('notes value in the Notelist.tsx', notes);
+  console.log('filteredNotes value in the Notelist.tsx', filteredNotes);
+
+  console.log('availableTags in the Notelist', availableTags);
+  console.log('notes in the Notelist', notes)
 
   return (
     <>
@@ -94,6 +97,10 @@ export function NoteList({availableTags, notes}: NoteListProps)  {
 }
 
 function NoteCard({ id, title, tags }: SimplifiedNote) {
+
+  console.log('tags in NoteCard', tags)
+  console.log('tags.title info', title)
+  console.log('tags.id info', id)
   return (
     <Card
       as={Link}
@@ -103,7 +110,7 @@ function NoteCard({ id, title, tags }: SimplifiedNote) {
       <Card.Body>
         <Stack gap={2} className='align-items-center justify-content-center h-100'>
           <span className='fs-5'>{title}</span>
-          {/* {tags.length > 0 &&
+          {tags.length > 0 &&
             (
             <Stack gap={1} direction='horizontal'
               className='justify-content-center flex-wrap'>
@@ -111,7 +118,7 @@ function NoteCard({ id, title, tags }: SimplifiedNote) {
                 <Badge className='text-truncate' key={tag.id}>{tag.label}</Badge>
               )}
             </Stack>
-          )} */}
+          )}
         </Stack>
       </Card.Body>
     </Card>
