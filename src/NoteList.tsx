@@ -122,6 +122,5 @@ function NoteCard({ id, title, tags }: SimplifiedNote) {
         </Stack>
       </Card.Body>
     </Card>
-
   );
 }
